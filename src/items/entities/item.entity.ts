@@ -1,7 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn} from 'typeorm';
 
-@Entity()
-export class Item {
+@Entity('item')
+export class ItemEntity {
   @PrimaryGeneratedColumn()
   id: string;
 
@@ -9,8 +9,11 @@ export class Item {
   name: string;
 
   @Column('text')
-  desciption: string;
+  description: string;
 
   @Column('int')
   qty: number;
+
+  @CreateDateColumn()
+  created: Date;
 }
